@@ -178,3 +178,8 @@ $("#search-btn").click(function (e) {
     // event for ajax calls
     getWeather((titleCase(city)));
 });
+
+// add click event for the recently search cities buttons on left column
+$(".historyBtn").click(function (e) {
+    getWeather($(this).text());
+});

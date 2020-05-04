@@ -156,7 +156,13 @@ function getWeather(city) {
 
                 var iconCode = response.daily[4].weather[0].icon;
                 $("#4day-icon").attr("src", "http://openweathermap.org/img/w/" + iconCode + ".png");    
-
+                
+                //display my humidity
+                $("#0day-humidity").text("Humidity: " + response.daily[0].humidity + "%");
+                $("#1day-humidity").text("Humidity: " + response.daily[1].humidity + "%");
+                $("#2day-humidity").text("Humidity: " + response.daily[2].humidity + "%");
+                $("#3day-humidity").text("Humidity: " + response.daily[3].humidity + "%");
+                $("#4day-humidity").text("Humidity: " + response.daily[4].humidity + "%");    
             });
         }
     })

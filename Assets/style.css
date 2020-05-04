@@ -17,6 +17,16 @@ h1 {
     padding-left: 10px;
 }
 
-.container {
+.currentcard {
     background-color: gray;
+    color: white;
+}
+
+.box card {
+    background-color: gray;
+}
+
+.card {
+    background-color: darkslategray;
+    color: white;
 }

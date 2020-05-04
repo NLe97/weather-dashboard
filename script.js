@@ -167,3 +167,14 @@ function getWeather(city) {
         }
     })
 }
+
+// I need to set search button click event to pull up cities that I search
+$("#search-btn").click(function (e) {
+    e.preventDefault();
+    // variable for user typing in city
+    var city = $("#city-input").val();
+    // Clears out search bar when user searches for city
+    $("#city-input").val("");
+    // event for ajax calls
+    getWeather((titleCase(city)));
+});

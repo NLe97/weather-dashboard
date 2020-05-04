@@ -61,7 +61,7 @@ function getWeather(city) {
             // var iconurl = "http://openweathermap.org/img/w/10d.png";
             $("#today-icon").attr("src", "http://openweathermap.org/img/w/" + iconcode + ".png");
 
-            //   second ajax call (using coordinates) using data above to get a more detailed future forecast and UV index
+            // ajax call to use the coordinates to from first call to get more info for city forcast....still building 
             $.ajax({
                 url: queryURL,
                 method: "GET",
@@ -85,7 +85,63 @@ function getWeather(city) {
                 }
                 localStorage.setItem("searchHistory", searchHistory);
                 
+                // pass the uv info to make strings into numbers
+                var uvEl = parseFloat(response.current.uvi.toFixed(1));
+                // setting the uv numbers to correspond to UV colors 
+                // if statements used to check uv values 
+                function checkUV() {
+                    if (uvEl <= 2.9) {
+                        $("#uv")
+                            .css("color", "green")
+                            .text("UV Index: " + uvEl);
+                    } else if (uvEl < 5.9) {
+                        $("#uv")
+                            .css("color", "orange")
+                            .text("UV Index: " + uvEl);
+                    } else if (uvEl < 7.9) {
+                        $("#uv")
+                            .css("color", "orangered")
+                            .text("UV Index: " + uvEl);
+                    } else if (uvEl < 10) {
+                        $("#uv")
+                            .css("color", "red")
+                            .text("UV Index: " + uvEl);
+                    } else {
+                        $("#uv")
+                            .css("color", "purple")
+                            .text("UV Index: " + uvEl);
+                    }
+                }
+                checkUV(uvEl);
 
-
+                // need to display temperature to the forcast
+                $("#0day-temp").text(
+                    "Temp: " +
+                    ((response.daily[0].temp.day - 273.15) * 1.8 + 32).toFixed(1) +
+                    "F"
+                );
+                $("#1day-temp").text(
+                    "Temp: " +
+                    ((response.daily[1].temp.day - 273.15) * 1.8 + 32).toFixed(1) +
+                    "F"
+                );
+                $("#2day-temp").text(
+                    "Temp: " +
+                    ((response.daily[2].temp.day - 273.15) * 1.8 + 32).toFixed(1) +
+                    "F"
+                );
+                $("#3day-temp").text(
+                    "Temp: " +
+                    ((response.daily[3].temp.day - 273.15) * 1.8 + 32).toFixed(1) +
+                    "F"
+                );
+                $("#4day-temp").text(
+                    "Temp: " +
+                    ((response.daily[4].temp.day - 273.15) * 1.8 + 32).toFixed(1) +
+                    "F"
+                );
                
-
+            });
+        }
+    })
+}

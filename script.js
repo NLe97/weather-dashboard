@@ -12,8 +12,8 @@ var recentSearches = $("#recent-searches");
             getWeather(searchHistory[0]);
         } else {
             var searchHistory = [];
-            //   Default search for kansas if no search history exists
-            getWeather("Kansas City");
+            //   Default search for Denver if no search history exists
+            getWeather("Denver");
         }
         // user input if they use lower case return as upper case
         function titleCase(str) {
@@ -58,7 +58,6 @@ function getWeather(city) {
 
               // I need to display my weather icon
             var iconcode = response.weather[0].icon;
-            // var iconurl = "http://openweathermap.org/img/w/10d.png";
             $("#today-icon").attr("src", "http://openweathermap.org/img/w/" + iconcode + ".png");
 
             // ajax call to use the coordinates to from first call to get more info for city forcast....still building 

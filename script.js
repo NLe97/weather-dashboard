@@ -141,6 +141,22 @@ function getWeather(city) {
                     "F"
                 );
                
+                // display my icons
+                var iconCode = response.daily[0].weather[0].icon;
+                $("#0day-icon").attr("src", "http://openweathermap.org/img/w/" + iconCode + ".png");
+
+                var iconCode = response.daily[1].weather[0].icon;
+                $("#1day-icon").attr("src", "http://openweathermap.org/img/w/" + iconCode + ".png");
+
+                var iconCode = response.daily[2].weather[0].icon;
+                $("#2day-icon").attr("src", "http://openweathermap.org/img/w/" + iconCode + ".png");
+
+                var iconCode = response.daily[3].weather[0].icon;
+                $("#3day-icon").attr("src", "http://openweathermap.org/img/w/" + iconCode + ".png");
+
+                var iconCode = response.daily[4].weather[0].icon;
+                $("#4day-icon").attr("src", "http://openweathermap.org/img/w/" + iconCode + ".png");    
+
             });
         }
     })

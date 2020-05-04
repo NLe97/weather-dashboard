@@ -29,14 +29,25 @@ function getWeather (city) {
             var queryURL = "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon +"&appid=" + apiKey;
 
             // I need variable to convert temp of Kelvin to Fahrenheit
+            var temp = (response.main.temp - 273.15) * 1.8 + 32;
+            //display pertinent information on the current city section
+            $("#city").text(response.name);
+            $("#temp").text("Temperature: " + temp.toFixed(0) + " degrees F")
+            $("#wind").text("Wind Speed: " + response.wind.speed + "MPH");
+            $("#humidity").text("Humidity: " + response.main.humidity + "%");
+
+            // I need to display my weather icon
+
+
+
+
+
 
 
 
         }
         
     })
-
-
 
 
 }
